@@ -1,0 +1,7 @@
+20:46:27 **** Incremental Build of configuration Debug for project PP2 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\PP.o" "..\\src\\PP.c" 
+gcc -o PP2.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
+
+20:46:28 Build Finished. 0 errors, 0 warnings. (took 339ms)
+

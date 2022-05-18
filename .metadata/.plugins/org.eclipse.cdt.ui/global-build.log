@@ -1,0 +1,779 @@
+22:16:00 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\PP.o" "..\\src\\PP.c" 
+..\src\PP.c: In function 'main':
+..\src\PP.c:150:25: error: incompatible type for argument 1 of 'cargarDatos'
+  150 |        cargarDatos(zonas[indexZonaSeleccionada], censadosInSituCargados, censadosVirtualesCargados, censadosAusentesCargados) == 0){
+      |                    ~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+      |                         |
+      |                         Zona {aka struct <anonymous>}
+In file included from ..\src\PP.c:6:
+..\src\Zona.h:41:23: note: expected 'Zona *' {aka 'struct <anonymous> *'} but argument is of type 'Zona' {aka 'struct <anonymous>'}
+   41 | int cargarDatos(Zona* zonaSeleccionada, int censadosInSitu, int censadosVirtuales, int censadosAusentes);
+      |                 ~~~~~~^~~~~~~~~~~~~~~~
+..\src\PP.c:39:6: warning: unused variable 'censadosAusentes' [-Wunused-variable]
+   39 |  int censadosAusentes;
+      |      ^~~~~~~~~~~~~~~~
+..\src\PP.c:38:6: warning: unused variable 'censadosVirtuales' [-Wunused-variable]
+   38 |  int censadosVirtuales;
+      |      ^~~~~~~~~~~~~~~~~
+..\src\PP.c:37:6: warning: unused variable 'censadosInSituZona' [-Wunused-variable]
+   37 |  int censadosInSituZona;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\PP.c:28:6: warning: unused variable 'zonaAsignadaCensista' [-Wunused-variable]
+   28 |  int zonaAsignadaCensista;
+      |      ^~~~~~~~~~~~~~~~~~~~
+..\src\PP.c:27:6: warning: unused variable 'estadoCensista' [-Wunused-variable]
+   27 |  int estadoCensista;
+      |      ^~~~~~~~~~~~~~
+22:16:11 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\PP.o" "..\\src\\PP.c" 
+..\src\PP.c: In function 'main':
+..\src\PP.c:39:6: warning: unused variable 'censadosAusentes' [-Wunused-variable]
+   39 |  int censadosAusentes;
+      |      ^~~~~~~~~~~~~~~~
+..\src\PP.c:38:6: warning: unused variable 'censadosVirtuales' [-Wunused-variable]
+   38 |  int censadosVirtuales;
+      |      ^~~~~~~~~~~~~~~~~
+..\src\PP.c:37:6: warning: unused variable 'censadosInSituZona' [-Wunused-variable]
+   37 |  int censadosInSituZona;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\PP.c:28:6: warning: unused variable 'zonaAsignadaCensista' [-Wunused-variable]
+   28 |  int zonaAsignadaCensista;
+      |      ^~~~~~~~~~~~~~~~~~~~
+..\src\PP.c:27:6: warning: unused variable 'estadoCensista' [-Wunused-variable]
+   27 |  int estadoCensista;
+      |      ^~~~~~~~~~~~~~
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Zona.o" "..\\src\\Zona.c" 
+..\src\Zona.c:160:5: error: conflicting types for 'cargarDatos'
+  160 | int cargarDatos(Zona* zonaSeleccionada,  int censadosInSitu, int censadosVirtuales, int censadosAusentes){
+      |     ^~~~~~~~~~~
+In file included from ..\src\Zona.c:6:
+..\src\Zona.h:41:5: note: previous declaration of 'cargarDatos' was here
+   41 | int cargarDatos(Zona zonaSeleccionada, int censadosInSitu, int censadosVirtuales, int censadosAusentes);
+      |     ^~~~~~~~~~~
+22:16:29 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\UTN.o" "..\\src\\UTN.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Zona.o" "..\\src\\Zona.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\PP.o" "..\\src\\PP.c" 
+..\src\PP.c: In function 'main':
+..\src\PP.c:150:8: warning: implicit declaration of function 'cargarDatos' [-Wimplicit-function-declaration]
+  150 |        cargarDatos(zonas[indexZonaSeleccionada], censadosInSituCargados, censadosVirtualesCargados, censadosAusentesCargados) == 0){
+      |        ^~~~~~~~~~~
+..\src\PP.c:39:6: warning: unused variable 'censadosAusentes' [-Wunused-variable]
+   39 |  int censadosAusentes;
+      |      ^~~~~~~~~~~~~~~~
+..\src\PP.c:38:6: warning: unused variable 'censadosVirtuales' [-Wunused-variable]
+   38 |  int censadosVirtuales;
+      |      ^~~~~~~~~~~~~~~~~
+..\src\PP.c:37:6: warning: unused variable 'censadosInSituZona' [-Wunused-variable]
+   37 |  int censadosInSituZona;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\PP.c:28:6: warning: unused variable 'zonaAsignadaCensista' [-Wunused-variable]
+   28 |  int zonaAsignadaCensista;
+      |      ^~~~~~~~~~~~~~~~~~~~
+..\src\PP.c:27:6: warning: unused variable 'estadoCensista' [-Wunused-variable]
+   27 |  int estadoCensista;
+      |      ^~~~~~~~~~~~~~
+gcc -o PP.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
+Info: Nothing to build for PP
+22:16:51 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\UTN.o" "..\\src\\UTN.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\PP.o" "..\\src\\PP.c" 
+..\src\PP.c: In function 'main':
+..\src\PP.c:150:25: error: incompatible type for argument 1 of 'cargarDatos'
+  150 |        cargarDatos(zonas[indexZonaSeleccionada], censadosInSituCargados, censadosVirtualesCargados, censadosAusentesCargados) == 0){
+      |                    ~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+      |                         |
+      |                         Zona {aka struct <anonymous>}
+In file included from ..\src\PP.c:6:
+..\src\Zona.h:41:24: note: expected 'Zona *' {aka 'struct <anonymous> *'} but argument is of type 'Zona' {aka 'struct <anonymous>'}
+   41 | int cargarDatos(Zona * zonaSeleccionada, int censadosInSitu, int censadosVirtuales, int censadosAusentes);
+      |                 ~~~~~~~^~~~~~~~~~~~~~~~
+..\src\PP.c:39:6: warning: unused variable 'censadosAusentes' [-Wunused-variable]
+   39 |  int censadosAusentes;
+      |      ^~~~~~~~~~~~~~~~
+..\src\PP.c:38:6: warning: unused variable 'censadosVirtuales' [-Wunused-variable]
+   38 |  int censadosVirtuales;
+      |      ^~~~~~~~~~~~~~~~~
+..\src\PP.c:37:6: warning: unused variable 'censadosInSituZona' [-Wunused-variable]
+   37 |  int censadosInSituZona;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\PP.c:28:6: warning: unused variable 'zonaAsignadaCensista' [-Wunused-variable]
+   28 |  int zonaAsignadaCensista;
+      |      ^~~~~~~~~~~~~~~~~~~~
+..\src\PP.c:27:6: warning: unused variable 'estadoCensista' [-Wunused-variable]
+   27 |  int estadoCensista;
+      |      ^~~~~~~~~~~~~~
+22:17:22 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\PP.o" "..\\src\\PP.c" 
+..\src\PP.c: In function 'main':
+..\src\PP.c:39:6: warning: unused variable 'censadosAusentes' [-Wunused-variable]
+   39 |  int censadosAusentes;
+      |      ^~~~~~~~~~~~~~~~
+..\src\PP.c:38:6: warning: unused variable 'censadosVirtuales' [-Wunused-variable]
+   38 |  int censadosVirtuales;
+      |      ^~~~~~~~~~~~~~~~~
+..\src\PP.c:37:6: warning: unused variable 'censadosInSituZona' [-Wunused-variable]
+   37 |  int censadosInSituZona;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\PP.c:28:6: warning: unused variable 'zonaAsignadaCensista' [-Wunused-variable]
+   28 |  int zonaAsignadaCensista;
+      |      ^~~~~~~~~~~~~~~~~~~~
+..\src\PP.c:27:6: warning: unused variable 'estadoCensista' [-Wunused-variable]
+   27 |  int estadoCensista;
+      |      ^~~~~~~~~~~~~~
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Zona.o" "..\\src\\Zona.c" 
+..\src\Zona.c: In function 'cargarDatos':
+..\src\Zona.c:164:21: error: invalid type argument of '->' (have 'Zona' {aka 'struct <anonymous>'})
+  164 |  if(zonaSeleccionada->isEmpty == FULL && (censadosInSitu + censadosVirtuales + censadosAusentes) > 0){
+      |                     ^~
+..\src\Zona.c:166:19: error: invalid type argument of '->' (have 'Zona' {aka 'struct <anonymous>'})
+  166 |   zonaSeleccionada->censadosPorZona.censadosInSitu = censadosInSitu;
+      |                   ^~
+..\src\Zona.c:167:19: error: invalid type argument of '->' (have 'Zona' {aka 'struct <anonymous>'})
+  167 |   zonaSeleccionada->censadosPorZona.censadosVirtuales = censadosVirtuales;
+      |                   ^~
+..\src\Zona.c:168:19: error: invalid type argument of '->' (have 'Zona' {aka 'struct <anonymous>'})
+  168 |   zonaSeleccionada->censadosPorZona.censadosAusentes = censadosAusentes;
+      |                   ^~
+..\src\Zona.c:169:19: error: invalid type argument of '->' (have 'Zona' {aka 'struct <anonymous>'})
+  169 |   zonaSeleccionada->estado = FINALIZADO;
+      |                   ^~
+22:17:44 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Zona.o" "..\\src\\Zona.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\UTN.o" "..\\src\\UTN.c" 
+gcc -o PP.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
+Info: Nothing to build for PP
+22:18:45 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\UTN.o" "..\\src\\UTN.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\PP.o" "..\\src\\PP.c" 
+..\src\PP.c: In function 'main':
+..\src\PP.c:150:25: error: incompatible type for argument 1 of 'cargarDatos'
+  150 |        cargarDatos(zonas[indexZonaSeleccionada], censadosInSituCargados, censadosVirtualesCargados, censadosAusentesCargados) == 0){
+      |                    ~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+      |                         |
+      |                         Zona {aka struct <anonymous>}
+In file included from ..\src\PP.c:6:
+..\src\Zona.h:41:23: note: expected 'Zona *' {aka 'struct <anonymous> *'} but argument is of type 'Zona' {aka 'struct <anonymous>'}
+   41 | int cargarDatos(Zona* zonaSeleccionada, int censadosInSitu, int censadosVirtuales, int censadosAusentes);
+      |                 ~~~~~~^~~~~~~~~~~~~~~~
+..\src\PP.c:39:6: warning: unused variable 'censadosAusentes' [-Wunused-variable]
+   39 |  int censadosAusentes;
+      |      ^~~~~~~~~~~~~~~~
+..\src\PP.c:38:6: warning: unused variable 'censadosVirtuales' [-Wunused-variable]
+   38 |  int censadosVirtuales;
+      |      ^~~~~~~~~~~~~~~~~
+..\src\PP.c:37:6: warning: unused variable 'censadosInSituZona' [-Wunused-variable]
+   37 |  int censadosInSituZona;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\PP.c:28:6: warning: unused variable 'zonaAsignadaCensista' [-Wunused-variable]
+   28 |  int zonaAsignadaCensista;
+      |      ^~~~~~~~~~~~~~~~~~~~
+..\src\PP.c:27:6: warning: unused variable 'estadoCensista' [-Wunused-variable]
+   27 |  int estadoCensista;
+      |      ^~~~~~~~~~~~~~
+22:21:10 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\PP.o" "..\\src\\PP.c" 
+..\src\PP.c: In function 'main':
+..\src\PP.c:39:6: warning: unused variable 'censadosAusentes' [-Wunused-variable]
+   39 |  int censadosAusentes;
+      |      ^~~~~~~~~~~~~~~~
+..\src\PP.c:38:6: warning: unused variable 'censadosVirtuales' [-Wunused-variable]
+   38 |  int censadosVirtuales;
+      |      ^~~~~~~~~~~~~~~~~
+..\src\PP.c:37:6: warning: unused variable 'censadosInSituZona' [-Wunused-variable]
+   37 |  int censadosInSituZona;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\PP.c:28:6: warning: unused variable 'zonaAsignadaCensista' [-Wunused-variable]
+   28 |  int zonaAsignadaCensista;
+      |      ^~~~~~~~~~~~~~~~~~~~
+..\src\PP.c:27:6: warning: unused variable 'estadoCensista' [-Wunused-variable]
+   27 |  int estadoCensista;
+      |      ^~~~~~~~~~~~~~
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\UTN.o" "..\\src\\UTN.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Zona.o" "..\\src\\Zona.c" 
+..\src\Zona.c:160:5: error: conflicting types for 'cargarDatos'
+  160 | int cargarDatos(Zona *zonaSeleccionada,  int censadosInSitu, int censadosVirtuales, int censadosAusentes){
+      |     ^~~~~~~~~~~
+In file included from ..\src\Zona.c:6:
+..\src\Zona.h:41:5: note: previous declaration of 'cargarDatos' was here
+   41 | int cargarDatos(Zona zonaSeleccionada, int censadosInSitu, int censadosVirtuales, int censadosAusentes);
+      |     ^~~~~~~~~~~
+22:21:30 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\UTN.o" "..\\src\\UTN.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\PP.o" "..\\src\\PP.c" 
+..\src\PP.c: In function 'main':
+..\src\PP.c:150:25: error: incompatible type for argument 1 of 'cargarDatos'
+  150 |        cargarDatos(zonas[indexZonaSeleccionada], censadosInSituCargados, censadosVirtualesCargados, censadosAusentesCargados) == 0){
+      |                    ~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+      |                         |
+      |                         Zona {aka struct <anonymous>}
+In file included from ..\src\PP.c:6:
+..\src\Zona.h:41:22: note: expected 'Zona *' {aka 'struct <anonymous> *'} but argument is of type 'Zona' {aka 'struct <anonymous>'}
+   41 | int cargarDatos(Zona zonaSeleccionada[], int censadosInSitu, int censadosVirtuales, int censadosAusentes);
+      |                 ~~~~~^~~~~~~~~~~~~~~~~~
+..\src\PP.c:39:6: warning: unused variable 'censadosAusentes' [-Wunused-variable]
+   39 |  int censadosAusentes;
+      |      ^~~~~~~~~~~~~~~~
+..\src\PP.c:38:6: warning: unused variable 'censadosVirtuales' [-Wunused-variable]
+   38 |  int censadosVirtuales;
+      |      ^~~~~~~~~~~~~~~~~
+..\src\PP.c:37:6: warning: unused variable 'censadosInSituZona' [-Wunused-variable]
+   37 |  int censadosInSituZona;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\PP.c:28:6: warning: unused variable 'zonaAsignadaCensista' [-Wunused-variable]
+   28 |  int zonaAsignadaCensista;
+      |      ^~~~~~~~~~~~~~~~~~~~
+..\src\PP.c:27:6: warning: unused variable 'estadoCensista' [-Wunused-variable]
+   27 |  int estadoCensista;
+      |      ^~~~~~~~~~~~~~
+22:21:45 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\UTN.o" "..\\src\\UTN.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Zona.o" "..\\src\\Zona.c" 
+..\src\Zona.c:160:5: error: conflicting types for 'cargarDatos'
+  160 | int cargarDatos(Zona zonaSeleccionada[], int censadosInSitu, int censadosVirtuales, int censadosAusentes){
+      |     ^~~~~~~~~~~
+In file included from ..\src\Zona.c:6:
+..\src\Zona.h:41:5: note: previous declaration of 'cargarDatos' was here
+   41 | int cargarDatos(Zona **zonaSeleccionada, int censadosInSitu, int censadosVirtuales, int censadosAusentes);
+      |     ^~~~~~~~~~~
+22:21:58 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\PP.o" "..\\src\\PP.c" 
+..\src\PP.c: In function 'main':
+..\src\PP.c:150:25: error: incompatible type for argument 1 of 'cargarDatos'
+  150 |        cargarDatos(zonas[indexZonaSeleccionada], censadosInSituCargados, censadosVirtualesCargados, censadosAusentesCargados) == 0){
+      |                    ~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+      |                         |
+      |                         Zona {aka struct <anonymous>}
+In file included from ..\src\PP.c:6:
+..\src\Zona.h:41:24: note: expected 'Zona **' {aka 'struct <anonymous> **'} but argument is of type 'Zona' {aka 'struct <anonymous>'}
+   41 | int cargarDatos(Zona **zonaSeleccionada, int censadosInSitu, int censadosVirtuales, int censadosAusentes);
+      |                 ~~~~~~~^~~~~~~~~~~~~~~~
+..\src\PP.c:39:6: warning: unused variable 'censadosAusentes' [-Wunused-variable]
+   39 |  int censadosAusentes;
+      |      ^~~~~~~~~~~~~~~~
+..\src\PP.c:38:6: warning: unused variable 'censadosVirtuales' [-Wunused-variable]
+   38 |  int censadosVirtuales;
+      |      ^~~~~~~~~~~~~~~~~
+..\src\PP.c:37:6: warning: unused variable 'censadosInSituZona' [-Wunused-variable]
+   37 |  int censadosInSituZona;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\PP.c:28:6: warning: unused variable 'zonaAsignadaCensista' [-Wunused-variable]
+   28 |  int zonaAsignadaCensista;
+      |      ^~~~~~~~~~~~~~~~~~~~
+..\src\PP.c:27:6: warning: unused variable 'estadoCensista' [-Wunused-variable]
+   27 |  int estadoCensista;
+      |      ^~~~~~~~~~~~~~
+22:22:20 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\PP.o" "..\\src\\PP.c" 
+..\src\PP.c: In function 'main':
+..\src\PP.c:150:25: error: incompatible type for argument 1 of 'cargarDatos'
+  150 |        cargarDatos(zonas[indexZonaSeleccionada], censadosInSituCargados, censadosVirtualesCargados, censadosAusentesCargados) == 0){
+      |                    ~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+      |                         |
+      |                         Zona {aka struct <anonymous>}
+In file included from ..\src\PP.c:6:
+..\src\Zona.h:41:23: note: expected 'Zona *' {aka 'struct <anonymous> *'} but argument is of type 'Zona' {aka 'struct <anonymous>'}
+   41 | int cargarDatos(Zona *zonaSeleccionada, int censadosInSitu, int censadosVirtuales, int censadosAusentes);
+      |                 ~~~~~~^~~~~~~~~~~~~~~~
+..\src\PP.c:39:6: warning: unused variable 'censadosAusentes' [-Wunused-variable]
+   39 |  int censadosAusentes;
+      |      ^~~~~~~~~~~~~~~~
+..\src\PP.c:38:6: warning: unused variable 'censadosVirtuales' [-Wunused-variable]
+   38 |  int censadosVirtuales;
+      |      ^~~~~~~~~~~~~~~~~
+..\src\PP.c:37:6: warning: unused variable 'censadosInSituZona' [-Wunused-variable]
+   37 |  int censadosInSituZona;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\PP.c:28:6: warning: unused variable 'zonaAsignadaCensista' [-Wunused-variable]
+   28 |  int zonaAsignadaCensista;
+      |      ^~~~~~~~~~~~~~~~~~~~
+..\src\PP.c:27:6: warning: unused variable 'estadoCensista' [-Wunused-variable]
+   27 |  int estadoCensista;
+      |      ^~~~~~~~~~~~~~
+22:23:09 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\UTN.o" "..\\src\\UTN.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Zona.o" "..\\src\\Zona.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\PP.o" "..\\src\\PP.c" 
+..\src\PP.c: In function 'main':
+..\src\PP.c:39:6: warning: unused variable 'censadosAusentes' [-Wunused-variable]
+   39 |  int censadosAusentes;
+      |      ^~~~~~~~~~~~~~~~
+..\src\PP.c:38:6: warning: unused variable 'censadosVirtuales' [-Wunused-variable]
+   38 |  int censadosVirtuales;
+      |      ^~~~~~~~~~~~~~~~~
+..\src\PP.c:37:6: warning: unused variable 'censadosInSituZona' [-Wunused-variable]
+   37 |  int censadosInSituZona;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\PP.c:28:6: warning: unused variable 'zonaAsignadaCensista' [-Wunused-variable]
+   28 |  int zonaAsignadaCensista;
+      |      ^~~~~~~~~~~~~~~~~~~~
+..\src\PP.c:27:6: warning: unused variable 'estadoCensista' [-Wunused-variable]
+   27 |  int estadoCensista;
+      |      ^~~~~~~~~~~~~~
+gcc -o PP.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file PP.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+22:23:20 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -o PP.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
+Info: Nothing to build for PP
+Info: Nothing to build for PP
+Info: Nothing to build for PP
+Info: Nothing to build for PP
+22:28:10 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\PP.o" "..\\src\\PP.c" 
+..\src\PP.c: In function 'main':
+..\src\PP.c:39:6: warning: unused variable 'censadosAusentes' [-Wunused-variable]
+   39 |  int censadosAusentes;
+      |      ^~~~~~~~~~~~~~~~
+..\src\PP.c:38:6: warning: unused variable 'censadosVirtuales' [-Wunused-variable]
+   38 |  int censadosVirtuales;
+      |      ^~~~~~~~~~~~~~~~~
+..\src\PP.c:37:6: warning: unused variable 'censadosInSituZona' [-Wunused-variable]
+   37 |  int censadosInSituZona;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\PP.c:28:6: warning: unused variable 'zonaAsignadaCensista' [-Wunused-variable]
+   28 |  int zonaAsignadaCensista;
+      |      ^~~~~~~~~~~~~~~~~~~~
+..\src\PP.c:27:6: warning: unused variable 'estadoCensista' [-Wunused-variable]
+   27 |  int estadoCensista;
+      |      ^~~~~~~~~~~~~~
+gcc -o PP.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
+23:22:07 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\UTN.o" "..\\src\\UTN.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\PP.o" "..\\src\\PP.c" 
+..\src\PP.c: In function 'main':
+..\src\PP.c:67:10: error: 'Zona' {aka 'struct <anonymous>'} has no member named 'ZonaId'
+   67 |  zonas[0].ZonaId = 500;
+      |          ^
+..\src\PP.c:153:86: error: 'censista' undeclared (first use in this function); did you mean 'censistas'?
+  153 |       indexCensistaSeleccionado = buscarIndexCensistaPorId(censistas, MAX_CENSISTAS, censista[]);
+      |                                                                                      ^~~~~~~~
+      |                                                                                      censistas
+..\src\PP.c:153:86: note: each undeclared identifier is reported only once for each function it appears in
+..\src\PP.c:153:95: error: expected expression before ']' token
+  153 |       indexCensistaSeleccionado = buscarIndexCensistaPorId(censistas, MAX_CENSISTAS, censista[]);
+      |                                                                                               ^
+..\src\PP.c:39:6: warning: unused variable 'censadosAusentes' [-Wunused-variable]
+   39 |  int censadosAusentes;
+      |      ^~~~~~~~~~~~~~~~
+..\src\PP.c:38:6: warning: unused variable 'censadosVirtuales' [-Wunused-variable]
+   38 |  int censadosVirtuales;
+      |      ^~~~~~~~~~~~~~~~~
+..\src\PP.c:37:6: warning: unused variable 'censadosInSituZona' [-Wunused-variable]
+   37 |  int censadosInSituZona;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\PP.c:28:6: warning: unused variable 'zonaAsignadaCensista' [-Wunused-variable]
+   28 |  int zonaAsignadaCensista;
+      |      ^~~~~~~~~~~~~~~~~~~~
+..\src\PP.c:27:6: warning: unused variable 'estadoCensista' [-Wunused-variable]
+   27 |  int estadoCensista;
+      |      ^~~~~~~~~~~~~~
+23:22:21 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Zona.o" "..\\src\\Zona.c" 
+..\src\Zona.c: In function 'altaZona':
+..\src\Zona.c:36:19: error: 'Zona' {aka 'struct <anonymous>'} has no member named 'ZonaId'
+   36 |   list[indexLibre].ZonaId = id;
+      |                   ^
+..\src\Zona.c: In function 'buscarIndexZonaPorId':
+..\src\Zona.c:78:15: error: 'Zona' {aka 'struct <anonymous>'} has no member named 'ZonaId'
+   78 |    if (list[i].ZonaId == id && list[i].isEmpty == FULL) {
+      |               ^
+..\src\Zona.c: In function 'mostrarUnaZona':
+..\src\Zona.c:114:32: error: 'Zona' {aka 'struct <anonymous>'} has no member named 'ZonaId'
+  114 |   printf("%d", zonaSeleccionada.ZonaId);
+      |                                ^
+..\src\Zona.c: In function 'mostrarZonas':
+..\src\Zona.c:139:25: error: 'Zona' {aka 'struct <anonymous>'} has no member named 'ZonaId'
+  139 |     printf("%d", list[i].ZonaId);
+      |                         ^
+23:22:41 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Zona.o" "..\\src\\Zona.c" 
+..\src\Zona.c: In function 'altaZona':
+..\src\Zona.c:36:19: error: 'Zona' {aka 'struct <anonymous>'} has no member named 'ZonaId'
+   36 |   list[indexLibre].ZonaId = id;
+      |                   ^
+23:22:48 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Zona.o" "..\\src\\Zona.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\PP.o" "..\\src\\PP.c" 
+..\src\PP.c: In function 'main':
+..\src\PP.c:67:10: error: 'Zona' {aka 'struct <anonymous>'} has no member named 'ZonaId'
+   67 |  zonas[0].ZonaId = 500;
+      |          ^
+..\src\PP.c:39:6: warning: unused variable 'censadosAusentes' [-Wunused-variable]
+   39 |  int censadosAusentes;
+      |      ^~~~~~~~~~~~~~~~
+..\src\PP.c:38:6: warning: unused variable 'censadosVirtuales' [-Wunused-variable]
+   38 |  int censadosVirtuales;
+      |      ^~~~~~~~~~~~~~~~~
+..\src\PP.c:37:6: warning: unused variable 'censadosInSituZona' [-Wunused-variable]
+   37 |  int censadosInSituZona;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\PP.c:28:6: warning: unused variable 'zonaAsignadaCensista' [-Wunused-variable]
+   28 |  int zonaAsignadaCensista;
+      |      ^~~~~~~~~~~~~~~~~~~~
+..\src\PP.c:27:6: warning: unused variable 'estadoCensista' [-Wunused-variable]
+   27 |  int estadoCensista;
+      |      ^~~~~~~~~~~~~~
+23:22:54 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\PP.o" "..\\src\\PP.c" 
+..\src\PP.c: In function 'main':
+..\src\PP.c:39:6: warning: unused variable 'censadosAusentes' [-Wunused-variable]
+   39 |  int censadosAusentes;
+      |      ^~~~~~~~~~~~~~~~
+..\src\PP.c:38:6: warning: unused variable 'censadosVirtuales' [-Wunused-variable]
+   38 |  int censadosVirtuales;
+      |      ^~~~~~~~~~~~~~~~~
+..\src\PP.c:37:6: warning: unused variable 'censadosInSituZona' [-Wunused-variable]
+   37 |  int censadosInSituZona;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\PP.c:28:6: warning: unused variable 'zonaAsignadaCensista' [-Wunused-variable]
+   28 |  int zonaAsignadaCensista;
+      |      ^~~~~~~~~~~~~~~~~~~~
+..\src\PP.c:27:6: warning: unused variable 'estadoCensista' [-Wunused-variable]
+   27 |  int estadoCensista;
+      |      ^~~~~~~~~~~~~~
+gcc -o PP.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file PP.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+23:28:50 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\PP.o" "..\\src\\PP.c" 
+..\src\PP.c: In function 'main':
+..\src\PP.c:39:6: warning: unused variable 'censadosAusentes' [-Wunused-variable]
+   39 |  int censadosAusentes;
+      |      ^~~~~~~~~~~~~~~~
+..\src\PP.c:38:6: warning: unused variable 'censadosVirtuales' [-Wunused-variable]
+   38 |  int censadosVirtuales;
+      |      ^~~~~~~~~~~~~~~~~
+..\src\PP.c:37:6: warning: unused variable 'censadosInSituZona' [-Wunused-variable]
+   37 |  int censadosInSituZona;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\PP.c:28:6: warning: unused variable 'zonaAsignadaCensista' [-Wunused-variable]
+   28 |  int zonaAsignadaCensista;
+      |      ^~~~~~~~~~~~~~~~~~~~
+..\src\PP.c:27:6: warning: unused variable 'estadoCensista' [-Wunused-variable]
+   27 |  int estadoCensista;
+      |      ^~~~~~~~~~~~~~
+gcc -o PP.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
+Info: Nothing to build for PP
+23:36:45 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Censista.o" "..\\src\\Censista.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\PP.o" "..\\src\\PP.c" 
+..\src\PP.c: In function 'main':
+..\src\PP.c:48:6: warning: unused variable 'censadosAusentes' [-Wunused-variable]
+   48 |  int censadosAusentes;
+      |      ^~~~~~~~~~~~~~~~
+..\src\PP.c:47:6: warning: unused variable 'censadosVirtuales' [-Wunused-variable]
+   47 |  int censadosVirtuales;
+      |      ^~~~~~~~~~~~~~~~~
+..\src\PP.c:46:6: warning: unused variable 'censadosInSituZona' [-Wunused-variable]
+   46 |  int censadosInSituZona;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\PP.c:37:6: warning: unused variable 'zonaAsignadaCensista' [-Wunused-variable]
+   37 |  int zonaAsignadaCensista;
+      |      ^~~~~~~~~~~~~~~~~~~~
+..\src\PP.c:36:6: warning: unused variable 'estadoCensista' [-Wunused-variable]
+   36 |  int estadoCensista;
+      |      ^~~~~~~~~~~~~~
+gcc -o PP.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
+23:37:22 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Censista.o" "..\\src\\Censista.c" 
+gcc -o PP.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
+23:39:46 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\PP.o" "..\\src\\PP.c" 
+..\src\PP.c: In function 'main':
+..\src\PP.c:48:6: warning: unused variable 'censadosAusentes' [-Wunused-variable]
+   48 |  int censadosAusentes;
+      |      ^~~~~~~~~~~~~~~~
+..\src\PP.c:47:6: warning: unused variable 'censadosVirtuales' [-Wunused-variable]
+   47 |  int censadosVirtuales;
+      |      ^~~~~~~~~~~~~~~~~
+..\src\PP.c:46:6: warning: unused variable 'censadosInSituZona' [-Wunused-variable]
+   46 |  int censadosInSituZona;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\PP.c:37:6: warning: unused variable 'zonaAsignadaCensista' [-Wunused-variable]
+   37 |  int zonaAsignadaCensista;
+      |      ^~~~~~~~~~~~~~~~~~~~
+..\src\PP.c:36:6: warning: unused variable 'estadoCensista' [-Wunused-variable]
+   36 |  int estadoCensista;
+      |      ^~~~~~~~~~~~~~
+gcc -o PP.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file PP.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+23:39:51 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -o PP.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
+23:41:07 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\PP.o" "..\\src\\PP.c" 
+..\src\PP.c: In function 'main':
+..\src\PP.c:48:6: warning: unused variable 'censadosAusentes' [-Wunused-variable]
+   48 |  int censadosAusentes;
+      |      ^~~~~~~~~~~~~~~~
+..\src\PP.c:47:6: warning: unused variable 'censadosVirtuales' [-Wunused-variable]
+   47 |  int censadosVirtuales;
+      |      ^~~~~~~~~~~~~~~~~
+..\src\PP.c:46:6: warning: unused variable 'censadosInSituZona' [-Wunused-variable]
+   46 |  int censadosInSituZona;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\PP.c:37:6: warning: unused variable 'zonaAsignadaCensista' [-Wunused-variable]
+   37 |  int zonaAsignadaCensista;
+      |      ^~~~~~~~~~~~~~~~~~~~
+..\src\PP.c:36:6: warning: unused variable 'estadoCensista' [-Wunused-variable]
+   36 |  int estadoCensista;
+      |      ^~~~~~~~~~~~~~
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Censista.o" "..\\src\\Censista.c" 
+gcc -o PP.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file PP.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+23:41:13 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -o PP.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
+23:41:45 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Censista.o" "..\\src\\Censista.c" 
+gcc -o PP.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
+23:42:58 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\PP.o" "..\\src\\PP.c" 
+..\src\PP.c: In function 'main':
+..\src\PP.c:48:6: warning: unused variable 'censadosAusentes' [-Wunused-variable]
+   48 |  int censadosAusentes;
+      |      ^~~~~~~~~~~~~~~~
+..\src\PP.c:47:6: warning: unused variable 'censadosVirtuales' [-Wunused-variable]
+   47 |  int censadosVirtuales;
+      |      ^~~~~~~~~~~~~~~~~
+..\src\PP.c:46:6: warning: unused variable 'censadosInSituZona' [-Wunused-variable]
+   46 |  int censadosInSituZona;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\PP.c:37:6: warning: unused variable 'zonaAsignadaCensista' [-Wunused-variable]
+   37 |  int zonaAsignadaCensista;
+      |      ^~~~~~~~~~~~~~~~~~~~
+..\src\PP.c:36:6: warning: unused variable 'estadoCensista' [-Wunused-variable]
+   36 |  int estadoCensista;
+      |      ^~~~~~~~~~~~~~
+gcc -o PP.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
+23:43:42 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Censista.o" "..\\src\\Censista.c" 
+gcc -o PP.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
+23:44:03 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Censista.o" "..\\src\\Censista.c" 
+gcc -o PP.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
+23:45:59 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\PP.o" "..\\src\\PP.c" 
+..\src\PP.c: In function 'main':
+..\src\PP.c:48:6: warning: unused variable 'censadosAusentes' [-Wunused-variable]
+   48 |  int censadosAusentes;
+      |      ^~~~~~~~~~~~~~~~
+..\src\PP.c:47:6: warning: unused variable 'censadosVirtuales' [-Wunused-variable]
+   47 |  int censadosVirtuales;
+      |      ^~~~~~~~~~~~~~~~~
+..\src\PP.c:46:6: warning: unused variable 'censadosInSituZona' [-Wunused-variable]
+   46 |  int censadosInSituZona;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\PP.c:37:6: warning: unused variable 'zonaAsignadaCensista' [-Wunused-variable]
+   37 |  int zonaAsignadaCensista;
+      |      ^~~~~~~~~~~~~~~~~~~~
+..\src\PP.c:36:6: warning: unused variable 'estadoCensista' [-Wunused-variable]
+   36 |  int estadoCensista;
+      |      ^~~~~~~~~~~~~~
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Censista.o" "..\\src\\Censista.c" 
+gcc -o PP.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
+23:48:13 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\PP.o" "..\\src\\PP.c" 
+..\src\PP.c: In function 'main':
+..\src\PP.c:48:6: warning: unused variable 'censadosAusentes' [-Wunused-variable]
+   48 |  int censadosAusentes;
+      |      ^~~~~~~~~~~~~~~~
+..\src\PP.c:47:6: warning: unused variable 'censadosVirtuales' [-Wunused-variable]
+   47 |  int censadosVirtuales;
+      |      ^~~~~~~~~~~~~~~~~
+..\src\PP.c:46:6: warning: unused variable 'censadosInSituZona' [-Wunused-variable]
+   46 |  int censadosInSituZona;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\PP.c:37:6: warning: unused variable 'zonaAsignadaCensista' [-Wunused-variable]
+   37 |  int zonaAsignadaCensista;
+      |      ^~~~~~~~~~~~~~~~~~~~
+..\src\PP.c:36:6: warning: unused variable 'estadoCensista' [-Wunused-variable]
+   36 |  int estadoCensista;
+      |      ^~~~~~~~~~~~~~
+gcc -o PP.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file PP.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+23:48:20 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -o PP.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
+23:49:29 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Censista.o" "..\\src\\Censista.c" 
+gcc -o PP.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
+00:28:32 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Censista.o" "..\\src\\Censista.c" 
+..\src\Censista.c: In function 'modificarCensista':
+..\src\Censista.c:97:31: warning: statement with no effect [-Wunused-value]
+   97 |    censista->fechaDeNacimiento.dia;
+      |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+..\src\Censista.c:101:31: warning: statement with no effect [-Wunused-value]
+  101 |    censista->fechaDeNacimiento.mes;
+      |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+..\src\Censista.c:105:31: warning: statement with no effect [-Wunused-value]
+  105 |    censista->fechaDeNacimiento.anio;
+      |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+..\src\Censista.c:109:12: warning: statement with no effect [-Wunused-value]
+  109 |    censista->edad;
+      |    ~~~~~~~~^~~~~~
+..\src\Censista.c:85:6: warning: variable 'nuevoDatoInt' set but not used [-Wunused-but-set-variable]
+   85 |  int nuevoDatoInt;
+      |      ^~~~~~~~~~~~
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\PP.o" "..\\src\\PP.c" 
+..\src\PP.c: In function 'main':
+..\src\PP.c:48:6: warning: unused variable 'censadosAusentes' [-Wunused-variable]
+   48 |  int censadosAusentes;
+      |      ^~~~~~~~~~~~~~~~
+..\src\PP.c:47:6: warning: unused variable 'censadosVirtuales' [-Wunused-variable]
+   47 |  int censadosVirtuales;
+      |      ^~~~~~~~~~~~~~~~~
+..\src\PP.c:46:6: warning: unused variable 'censadosInSituZona' [-Wunused-variable]
+   46 |  int censadosInSituZona;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\PP.c:37:6: warning: unused variable 'zonaAsignadaCensista' [-Wunused-variable]
+   37 |  int zonaAsignadaCensista;
+      |      ^~~~~~~~~~~~~~~~~~~~
+..\src\PP.c:36:6: warning: unused variable 'estadoCensista' [-Wunused-variable]
+   36 |  int estadoCensista;
+      |      ^~~~~~~~~~~~~~
+gcc -o PP.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file PP.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+00:28:37 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -o PP.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
+Info: Nothing to build for PP
+00:33:41 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Censista.o" "..\\src\\Censista.c" 
+..\src\Censista.c: In function 'modificarCensista':
+..\src\Censista.c:99:31: warning: statement with no effect [-Wunused-value]
+   99 |    censista->fechaDeNacimiento.dia;
+      |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+..\src\Censista.c:104:31: warning: statement with no effect [-Wunused-value]
+  104 |    censista->fechaDeNacimiento.mes;
+      |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+..\src\Censista.c:109:31: warning: statement with no effect [-Wunused-value]
+  109 |    censista->fechaDeNacimiento.anio;
+      |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+..\src\Censista.c:114:12: warning: statement with no effect [-Wunused-value]
+  114 |    censista->edad;
+      |    ~~~~~~~~^~~~~~
+..\src\Censista.c:85:6: warning: variable 'nuevoDatoInt' set but not used [-Wunused-but-set-variable]
+   85 |  int nuevoDatoInt;
+      |      ^~~~~~~~~~~~
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\PP.o" "..\\src\\PP.c" 
+..\src\PP.c: In function 'main':
+..\src\PP.c:155:9: warning: implicit declaration of function 'modificarCensista' [-Wimplicit-function-declaration]
+  155 |         modificarCensista(&censistas[indexCensistaSeleccionado], nuevoDato, opcionMenuModificaciones) == 0){
+      |         ^~~~~~~~~~~~~~~~~
+..\src\PP.c:48:6: warning: unused variable 'censadosAusentes' [-Wunused-variable]
+   48 |  int censadosAusentes;
+      |      ^~~~~~~~~~~~~~~~
+..\src\PP.c:47:6: warning: unused variable 'censadosVirtuales' [-Wunused-variable]
+   47 |  int censadosVirtuales;
+      |      ^~~~~~~~~~~~~~~~~
+..\src\PP.c:46:6: warning: unused variable 'censadosInSituZona' [-Wunused-variable]
+   46 |  int censadosInSituZona;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\PP.c:37:6: warning: unused variable 'zonaAsignadaCensista' [-Wunused-variable]
+   37 |  int zonaAsignadaCensista;
+      |      ^~~~~~~~~~~~~~~~~~~~
+..\src\PP.c:36:6: warning: unused variable 'estadoCensista' [-Wunused-variable]
+   36 |  int estadoCensista;
+      |      ^~~~~~~~~~~~~~
+gcc -o PP.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file PP.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+00:33:48 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -o PP.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
+Info: Nothing to build for PP
+00:46:55 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\PP.o" "..\\src\\PP.c" 
+..\src\PP.c: In function 'main':
+..\src\PP.c:155:9: warning: implicit declaration of function 'modificarCensista' [-Wimplicit-function-declaration]
+  155 |         modificarCensista(&censistas[indexCensistaSeleccionado], nuevoDato, opcionMenuModificaciones) == 0){
+      |         ^~~~~~~~~~~~~~~~~
+..\src\PP.c:48:6: warning: unused variable 'censadosAusentes' [-Wunused-variable]
+   48 |  int censadosAusentes;
+      |      ^~~~~~~~~~~~~~~~
+..\src\PP.c:47:6: warning: unused variable 'censadosVirtuales' [-Wunused-variable]
+   47 |  int censadosVirtuales;
+      |      ^~~~~~~~~~~~~~~~~
+..\src\PP.c:46:6: warning: unused variable 'censadosInSituZona' [-Wunused-variable]
+   46 |  int censadosInSituZona;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\PP.c:37:6: warning: unused variable 'zonaAsignadaCensista' [-Wunused-variable]
+   37 |  int zonaAsignadaCensista;
+      |      ^~~~~~~~~~~~~~~~~~~~
+..\src\PP.c:36:6: warning: unused variable 'estadoCensista' [-Wunused-variable]
+   36 |  int estadoCensista;
+      |      ^~~~~~~~~~~~~~
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Censista.o" "..\\src\\Censista.c" 
+gcc -o PP.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file PP.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+00:47:00 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -o PP.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
+Info: Nothing to build for PP
+00:49:21 **** Incremental Build of configuration Debug for project PP ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\PP.o" "..\\src\\PP.c" 
+..\src\PP.c: In function 'main':
+..\src\PP.c:155:9: warning: implicit declaration of function 'modificarCensista' [-Wimplicit-function-declaration]
+  155 |         modificarCensista(&censistas[indexCensistaSeleccionado], nuevoDato, opcionMenuModificaciones) == 0){
+      |         ^~~~~~~~~~~~~~~~~
+..\src\PP.c:48:6: warning: unused variable 'censadosAusentes' [-Wunused-variable]
+   48 |  int censadosAusentes;
+      |      ^~~~~~~~~~~~~~~~
+..\src\PP.c:47:6: warning: unused variable 'censadosVirtuales' [-Wunused-variable]
+   47 |  int censadosVirtuales;
+      |      ^~~~~~~~~~~~~~~~~
+..\src\PP.c:46:6: warning: unused variable 'censadosInSituZona' [-Wunused-variable]
+   46 |  int censadosInSituZona;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\PP.c:37:6: warning: unused variable 'zonaAsignadaCensista' [-Wunused-variable]
+   37 |  int zonaAsignadaCensista;
+      |      ^~~~~~~~~~~~~~~~~~~~
+..\src\PP.c:36:6: warning: unused variable 'estadoCensista' [-Wunused-variable]
+   36 |  int estadoCensista;
+      |      ^~~~~~~~~~~~~~
+gcc -o PP.exe "src\\Censista.o" "src\\PP.o" "src\\UTN.o" "src\\Zona.o" 
