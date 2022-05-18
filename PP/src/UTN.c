@@ -131,6 +131,7 @@ int getString (char mensaje[], char mensajeError[], char cadena[], int len, int 
 //------------------------------VALIDACIONES------------------------------
 
 
+
 int validarEsInt(char * cadena){
 	int retorno = 0;
 	int i = 0;

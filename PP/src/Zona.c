@@ -26,7 +26,7 @@ int inicializarZonas(Zona* list, int len){
 	return retorno;
 }
 
-int altaZona(Zona* list, int len, int id, char localidad[], char calle1[], char calle2[], char calle3[], char calle4[]){
+int altaZona(Zona* list, int len, int id, int localidad, char calle1[], char calle2[], char calle3[], char calle4[]){
 	int retorno = -1;
 
 	int indexLibre = -1;
@@ -34,7 +34,7 @@ int altaZona(Zona* list, int len, int id, char localidad[], char calle1[], char 
 
 	if(buscarIndexLibreZona(list, len, &indexLibre) == 0){
 		list[indexLibre].id = id;
-		strcpy(list[indexLibre].localidad, localidad);
+		list[indexLibre].localidad = localidad;
 		strcpy(list[indexLibre].callesDeZona.calle1, calle1);
 		strcpy(list[indexLibre].callesDeZona.calle2, calle2);
 		strcpy(list[indexLibre].callesDeZona.calle3, calle3);
@@ -44,7 +44,7 @@ int altaZona(Zona* list, int len, int id, char localidad[], char calle1[], char 
 		list[indexLibre].censadosPorZona.censadosAusentes = 0;
 		list[indexLibre].estado = PENDIENTE;
 		list[indexLibre].isEmpty = FULL;
-		retorno = mostrarUnaZona(list[indexLibre]); //Si se carga exitosamente, en retorno se carga 0.
+		retorno = 0;
 	}
 
 
@@ -52,7 +52,7 @@ int altaZona(Zona* list, int len, int id, char localidad[], char calle1[], char 
 	return retorno;
 }
 
-int bajaZona(Zona* list, int len, int id, char mensaje[]){
+int bajaZona(Zona* list, int len, int id, char mensaje[], char arrayLocalidades[][32]){
 	int retorno = -1;
 	int index;
 	char respuesta;
@@ -60,7 +60,7 @@ int bajaZona(Zona* list, int len, int id, char mensaje[]){
 	if(list != NULL && len>0){
 
 		index = buscarIndexZonaPorId(list, len, id);
-		if(index != -1 && mostrarUnaZona(list[index]) != -1 && getCharSiNo(mensaje, &respuesta, 1) == 0 && (respuesta == 'S' || respuesta =='s')){
+		if(index != -1 && mostrarUnaZona(list[index], arrayLocalidades) != -1 && getCharSiNo(mensaje, &respuesta, 1) == 0 && (respuesta == 'S' || respuesta =='s')){
 			list[index].isEmpty = EMPTY;
 			retorno = 0;
 		}
@@ -104,20 +104,20 @@ int buscarIndexLibreZona(Zona* list, int len, int * index){
 }
 
 
-int mostrarUnaZona(Zona zonaSeleccionada){
+int mostrarUnaZona(Zona zonaSeleccionada, char arrayLocalidades[][32]){
 	int retorno = -1;
 
 
 	if(zonaSeleccionada.isEmpty == FULL){
 		printf("ID\t||\tLOCALIDAD\t||\tCALLES\t||\tESTADO\t||\tCENSADOS IN SITU\t||\tCENSADOS VIRTUALES||\tAUSENTES\n");
 
-		printf("%d", zonaSeleccionada.id);
-		printf("%s", zonaSeleccionada.localidad);
-		printf("%s, %s, %s, %s", zonaSeleccionada.callesDeZona.calle1, zonaSeleccionada.callesDeZona.calle2, zonaSeleccionada.callesDeZona.calle3, zonaSeleccionada.callesDeZona.calle4);
-		printf("%d", zonaSeleccionada.estado);
-		printf("%20d", zonaSeleccionada.censadosPorZona.censadosInSitu);
-		printf("%20d", zonaSeleccionada.censadosPorZona.censadosVirtuales);
-		printf("%20d", zonaSeleccionada.censadosPorZona.censadosAusentes);
+		printf("%-3d", zonaSeleccionada.id);
+		printf("%20s", arrayLocalidades[zonaSeleccionada.localidad-1]);
+		printf("%20s, %-10s, %-10s, %-15s", zonaSeleccionada.callesDeZona.calle1, zonaSeleccionada.callesDeZona.calle2, zonaSeleccionada.callesDeZona.calle3, zonaSeleccionada.callesDeZona.calle4);
+		printf("%10d", zonaSeleccionada.estado);
+		printf("%10d", zonaSeleccionada.censadosPorZona.censadosInSitu);
+		printf("%10d", zonaSeleccionada.censadosPorZona.censadosVirtuales);
+		printf("%10d", zonaSeleccionada.censadosPorZona.censadosAusentes);
 
 		printf("\n");
 		retorno = 0;
@@ -126,28 +126,30 @@ int mostrarUnaZona(Zona zonaSeleccionada){
 	return retorno;
 }
 
-int mostrarZonas(Zona * list, int len){
+int mostrarZonas(Zona * list, int len,  char arrayLocalidades[][32]){
 	int retorno = -1;
 	int i;
 
 
 	if(list != NULL && len > 0){
-		printf("ID\t||\tLOCALIDAD\t||\tCALLES\t||\tESTADO\t||\tCENSADOS IN SITU\t||\tCENSADOS VIRTUALES||\tAUSENTES\n");
+
+		printf("ID\t||\tLOCALIDAD\t||\t\tCALLES\t\t\t||\tESTADO\t||\tCENSADOS IN SITU\t||\tCENSADOS VIRTUALES||\tAUSENTES\n");
 		for(i=0; i<len; i++){
 			if(list[i].isEmpty == FULL){
 
-				printf("%d", list[i].id);
-				printf("%s", list[i].localidad);
-				printf("%s, %s, %s, %s", list[i].callesDeZona.calle1, list[i].callesDeZona.calle2, list[i].callesDeZona.calle3, list[i].callesDeZona.calle4);
-				printf("%d", list[i].estado);
-				printf("%20d", list[i].censadosPorZona.censadosInSitu);
-				printf("%20d", list[i].censadosPorZona.censadosVirtuales);
-				printf("%20d", list[i].censadosPorZona.censadosAusentes);
+				printf("%-3d", list[i].id);
+				printf("%20s", arrayLocalidades[list[i].localidad-1]);
+				printf("%20s, %-10s, %-10s, %-15s", list[i].callesDeZona.calle1, list[i].callesDeZona.calle2, list[i].callesDeZona.calle3, list[i].callesDeZona.calle4);
+				printf("%10d", list[i].estado);
+				printf("%10d", list[i].censadosPorZona.censadosInSitu);
+				printf("%10d", list[i].censadosPorZona.censadosVirtuales);
+				printf("%10d", list[i].censadosPorZona.censadosAusentes);
 
 				printf("\n");
 				retorno = 0;
 			}
 		}
+
 		printf("\n\n");
 	}
 
@@ -189,4 +191,52 @@ int hayZonas(Zona* list, int len){
 	}
 
 	return retorno;
+}
+
+void hardcodearZonas(Zona* list){
+	list[0].localidad = 1;
+	strcpy(list[0].callesDeZona.calle1, "Colombres");
+	strcpy(list[0].callesDeZona.calle2, "Boedo");
+	strcpy(list[0].callesDeZona.calle3, "San Juan");
+	strcpy(list[0].callesDeZona.calle4, "Independencia");
+	list[0].isEmpty = 1;
+	list[0].id = 500;
+	list[0].censistaId = -1;
+
+	list[1].localidad = 2;
+	strcpy(list[1].callesDeZona.calle1, "Rivadavia");
+	strcpy(list[1].callesDeZona.calle2, "Acoyte");
+	strcpy(list[1].callesDeZona.calle3, "Yerbal");
+	strcpy(list[1].callesDeZona.calle4, "Hidalgo");
+	list[1].isEmpty = 1;
+	list[1].id = 501;
+	list[1].censistaId = -1;
+
+	list[2].localidad = 3;
+	strcpy(list[2].callesDeZona.calle1, "Carabobo");
+	strcpy(list[2].callesDeZona.calle2, "Santander");
+	strcpy(list[2].callesDeZona.calle3, "Avelino Diaz");
+	strcpy(list[2].callesDeZona.calle4, "Pumacahua");
+	list[2].isEmpty = 1;
+	list[2].id = 502;
+	list[2].censistaId = -1;
+
+	list[3].localidad = 4;
+	strcpy(list[3].callesDeZona.calle1, "Emilio Mitre");
+	strcpy(list[3].callesDeZona.calle2, "Salas");
+	strcpy(list[3].callesDeZona.calle3, "Estrada");
+	strcpy(list[3].callesDeZona.calle4, "Cachimayo");
+	list[3].isEmpty = 1;
+	list[3].id = 503;
+	list[3].censistaId = -1;
+
+
+	list[4].localidad = 5;
+	strcpy(list[4].callesDeZona.calle1, "Hipolito Yrigoyen");
+	strcpy(list[4].callesDeZona.calle2, "Don Bosco");
+	strcpy(list[4].callesDeZona.calle3, "Yapeyu");
+	strcpy(list[4].callesDeZona.calle4, "Quintino Bocayuva");
+	list[4].isEmpty = 1;
+	list[4].id = 504;
+	list[4].censistaId = -1;
 }

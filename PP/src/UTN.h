@@ -57,6 +57,8 @@ int validarEsInt(char * cadena);
  */
 int validarEsFloat(char * cadena);
 
+
+
 /**
  * \brief Recibe por parametro un array de caracteres y le carga un valor.
  * \param cadena Es el array a ser cargado

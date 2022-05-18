@@ -1,0 +1,49 @@
+#ifndef CENSISTA_H_
+#define CENSISTA_H_
+
+struct {
+	int dia;
+	int mes;
+	int anio;
+} typedef Fecha;
+
+struct {
+	char calle[32];
+	char numero[32];
+} typedef Direccion;
+
+struct {
+  int id;
+  char nombre[32];
+  char apellido[32];
+  Fecha fechaDeNacimiento;
+  int edad;
+  Direccion censistaDireccion;
+  int estado;
+  int zonaAsignada;
+  int isEmpty;
+} typedef Censista;
+
+
+int inicializarCensistas(Censista* list, int len);
+
+int altaCensista(Censista* list, int len, int id, char nombre[], char apellido[], int dia, int mes, int anio, int edad, char calle[], char numeroCalle[]);
+
+int bajaCensista(Censista* list, int len, int id, char mensaje[]);
+
+int modificarCensista(Censista* censista, char * nuevoDato, int opcion);
+
+int buscarIndexLibre(Censista* list, int len, int * index);
+
+int buscarIndexCensistaPorId(Censista* list, int len, int id);
+
+int mostrarUnCensista(Censista censista);
+
+int mostrarCensistas(Censista* list, int len);
+
+int hayCensistas(Censista* list, int len);
+
+void hardcodearCensistas(Censista * list);
+
+#endif
+

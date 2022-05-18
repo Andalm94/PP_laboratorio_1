@@ -30,7 +30,7 @@ int inicializarCensistas(Censista* list, int len){
 // -------------------------- ALTA - BAJA - MODIFICACIONES ---------------------------
 //------------------------------------------------------------------------------------
 
-int altaCensista(Censista* list, int len, int id, char nombre[], char apellido[], int dia, int mes, int anio, int edad, char localidad[], char calle[], char numeroCalle[]){
+int altaCensista(Censista* list, int len, int id, char nombre[], char apellido[], int dia, int mes, int anio, int edad, char calle[], char numeroCalle[]){
 	int retorno = -1;
 
 	int indexLibre = -1;
@@ -44,13 +44,12 @@ int altaCensista(Censista* list, int len, int id, char nombre[], char apellido[]
 		list[indexLibre].fechaDeNacimiento.mes = mes;
 		list[indexLibre].fechaDeNacimiento.anio = anio;
 		list[indexLibre].edad = edad;
-		strcpy(list[indexLibre].censistaDireccion.localidad, localidad);
 		strcpy(list[indexLibre].censistaDireccion.calle, calle);
 		strcpy(list[indexLibre].censistaDireccion.numero, numeroCalle);
-		list[indexLibre].estado = INACTIVO;
-		list[indexLibre].zonaAsignada = -1;
+		list[indexLibre].estado = LIBERADO;
+		list[indexLibre].zonaAsignadaId = -1;
 		list[indexLibre].isEmpty = FULL;
-		retorno = mostrarUnCensista(list[indexLibre]); //Si se carga exitosamente, en retorno se carga 0.
+		retorno = 0;
 	}
 
 
@@ -67,7 +66,7 @@ int bajaCensista(Censista* list, int len, int id, char mensaje[]){
 
 		index = buscarIndexCensistaPorId(list, len, id);
 		if(index != -1 && mostrarUnCensista(list[index]) != -1 && getCharSiNo(mensaje, &respuesta, 1) == 0 && (respuesta == 'S' || respuesta =='s')){
-			if(list[index].zonaAsignada != -1){
+			if(list[index].zonaAsignadaId == -1){
 				list[index].isEmpty = EMPTY;
 			}
 			else{
@@ -95,24 +94,32 @@ int modificarCensista(Censista* censista, char * nuevoDato, int opcion){
 			retorno = 0;
 			break;
 		case 3:
-			nuevoDatoInt = atoi(nuevoDato);
-			censista->fechaDeNacimiento.dia = nuevoDatoInt;
-			retorno = 0;
+			if(strlen(nuevoDato)<=2 && validarEsInt(nuevoDato) == 0){
+				nuevoDatoInt = atoi(nuevoDato);
+				censista->fechaDeNacimiento.dia = nuevoDatoInt;
+				retorno = 0;
+			}
 			break;
 		case 4:
-			nuevoDatoInt = atoi(nuevoDato);
-			censista->fechaDeNacimiento.mes = nuevoDatoInt;
-			retorno = 0;
+			if(strlen(nuevoDato)<=2 && validarEsInt(nuevoDato) == 0){
+				nuevoDatoInt = atoi(nuevoDato);
+				censista->fechaDeNacimiento.mes = nuevoDatoInt;
+				retorno = 0;
+			}
 			break;
 		case 5:
-			nuevoDatoInt = atoi(nuevoDato);
-			censista->fechaDeNacimiento.anio = nuevoDatoInt;
-			retorno = 0;
+			if(strlen(nuevoDato)==4 && validarEsInt(nuevoDato) == 0){
+				nuevoDatoInt = atoi(nuevoDato);
+				censista->fechaDeNacimiento.anio = nuevoDatoInt;
+				retorno = 0;
+			}
 			break;
 		case 6:
-			nuevoDatoInt = atoi(nuevoDato);
-			censista->edad = nuevoDatoInt;
-			retorno = 0;
+			if(strlen(nuevoDato)<=2 && validarEsInt(nuevoDato) == 0){
+				nuevoDatoInt = atoi(nuevoDato);
+				censista->edad = nuevoDatoInt;
+				retorno = 0;
+			}
 			break;
 		case 7:
 			strcpy(censista->censistaDireccion.calle, nuevoDato);
@@ -123,10 +130,6 @@ int modificarCensista(Censista* censista, char * nuevoDato, int opcion){
 			retorno = 0;
 			break;
 		case 9:
-			strcpy(censista->censistaDireccion.localidad, nuevoDato);
-			retorno = 0;
-			break;
-		case 10:
 			break;
 		}
 
@@ -190,9 +193,9 @@ int mostrarUnCensista(Censista censista){
 		printf("%20s", censista.apellido);
 		printf("%20d/%d/%d", censista.fechaDeNacimiento.dia, censista.fechaDeNacimiento.mes, censista.fechaDeNacimiento.anio);
 		printf("%20d", censista.edad);
-		printf("%20s %s, %s", censista.censistaDireccion.calle, censista.censistaDireccion.numero, censista.censistaDireccion.localidad);
+		printf("%20s %s", censista.censistaDireccion.calle, censista.censistaDireccion.numero);
 		printf("%10d", censista.estado);
-		printf("%10d", censista.zonaAsignada);
+		printf("%10d", censista.zonaAsignadaId);
 
 		printf("\n");
 		retorno = 0;
@@ -214,9 +217,9 @@ int mostrarCensistas(Censista* list, int len){
 				printf("%20s", list[i].apellido);
 				printf("%20d/%d/%d", list[i].fechaDeNacimiento.dia, list[i].fechaDeNacimiento.mes, list[i].fechaDeNacimiento.anio);
 				printf("%20d", list[i].edad);
-				printf("%20s %s, %s", list[i].censistaDireccion.calle, list[i].censistaDireccion.numero, list[i].censistaDireccion.localidad);
+				printf("%20s %s", list[i].censistaDireccion.calle, list[i].censistaDireccion.numero);
 				printf("%10d", list[i].estado);
-				printf("%10d", list[i].zonaAsignada);
+				printf("%10d", list[i].zonaAsignadaId);
 				printf("\n");
 			}
 		}
@@ -244,3 +247,61 @@ int hayCensistas(Censista* list, int len){
 	return retorno;
 }
 
+void hardcodearCensistas(Censista * list){
+
+	list[0].id = 250;
+	strcpy(list[0].nombre, "Andres");
+	strcpy(list[0].apellido, "Almeida");
+	strcpy(list[0].censistaDireccion.calle, "Santander");
+	strcpy(list[0].censistaDireccion.numero, "1524");
+	list[0].edad = 37;
+	list[0].fechaDeNacimiento.dia = 24;
+	list[0].fechaDeNacimiento.mes = 11;
+	list[0].fechaDeNacimiento.anio = 1990;
+	list[0].isEmpty = 1;
+
+
+	list[1].id = 251;
+	strcpy(list[1].nombre, "Pipe");
+	strcpy(list[1].apellido, "Almeida");
+	strcpy(list[1].censistaDireccion.calle, "Asamblea");
+	strcpy(list[1].censistaDireccion.numero, "1237");
+	list[1].edad = 22;
+	list[1].fechaDeNacimiento.dia = 04;
+	list[1].fechaDeNacimiento.mes = 02;
+	list[1].fechaDeNacimiento.anio = 2000;
+	list[1].isEmpty = 1;
+
+	list[2].id = 252;
+	strcpy(list[2].nombre, "Karina");
+	strcpy(list[2].apellido, "Barreiro");
+	strcpy(list[2].censistaDireccion.calle, "Colombres");
+	strcpy(list[2].censistaDireccion.numero, "1479");
+	list[2].edad = 30;
+	list[2].fechaDeNacimiento.dia = 25;
+	list[2].fechaDeNacimiento.mes = 03;
+	list[2].fechaDeNacimiento.anio = 1992;
+	list[2].isEmpty = 1;
+
+	list[3].id = 253;
+	strcpy(list[3].nombre, "Jorge");
+	strcpy(list[3].apellido, "Barreiro");
+	strcpy(list[3].censistaDireccion.calle, "Colombres");
+	strcpy(list[3].censistaDireccion.numero, "1479");
+	list[3].edad = 60;
+	list[3].fechaDeNacimiento.dia = 01;
+	list[3].fechaDeNacimiento.mes = 12;
+	list[3].fechaDeNacimiento.anio = 1961;
+	list[3].isEmpty = 1;
+
+	list[4].id = 254;
+	strcpy(list[4].nombre, "Gladys");
+	strcpy(list[4].apellido, "Salucho");
+	strcpy(list[4].censistaDireccion.calle, "Santander");
+	strcpy(list[4].censistaDireccion.numero, "1340");
+	list[4].edad = 61;
+	list[4].fechaDeNacimiento.dia = 27;
+	list[4].fechaDeNacimiento.mes = 07;
+	list[4].fechaDeNacimiento.anio = 1960;
+	list[4].isEmpty = 1;
+}
