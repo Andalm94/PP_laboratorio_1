@@ -19,6 +19,7 @@ int inicializarZonas(Zona* list, int len){
 	if(list != NULL && len > 0){
 		for (i=0; i<len; i++){
 			list[i].isEmpty = EMPTY;
+			list[i].censistaId = -1;
 		}
 		retorno = 0;
 	}

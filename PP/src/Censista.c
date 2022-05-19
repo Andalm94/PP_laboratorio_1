@@ -247,6 +247,8 @@ int hayCensistas(Censista* list, int len){
 	return retorno;
 }
 
+
+
 void hardcodearCensistas(Censista * list){
 
 	list[0].id = 250;
@@ -254,6 +256,7 @@ void hardcodearCensistas(Censista * list){
 	strcpy(list[0].apellido, "Almeida");
 	strcpy(list[0].censistaDireccion.calle, "Santander");
 	strcpy(list[0].censistaDireccion.numero, "1524");
+	list[0].estado = LIBERADO;
 	list[0].edad = 37;
 	list[0].fechaDeNacimiento.dia = 24;
 	list[0].fechaDeNacimiento.mes = 11;
@@ -266,6 +269,7 @@ void hardcodearCensistas(Censista * list){
 	strcpy(list[1].apellido, "Almeida");
 	strcpy(list[1].censistaDireccion.calle, "Asamblea");
 	strcpy(list[1].censistaDireccion.numero, "1237");
+	list[1].estado = LIBERADO;
 	list[1].edad = 22;
 	list[1].fechaDeNacimiento.dia = 04;
 	list[1].fechaDeNacimiento.mes = 02;
@@ -277,6 +281,7 @@ void hardcodearCensistas(Censista * list){
 	strcpy(list[2].apellido, "Barreiro");
 	strcpy(list[2].censistaDireccion.calle, "Colombres");
 	strcpy(list[2].censistaDireccion.numero, "1479");
+	list[2].estado = LIBERADO;
 	list[2].edad = 30;
 	list[2].fechaDeNacimiento.dia = 25;
 	list[2].fechaDeNacimiento.mes = 03;
@@ -288,6 +293,7 @@ void hardcodearCensistas(Censista * list){
 	strcpy(list[3].apellido, "Barreiro");
 	strcpy(list[3].censistaDireccion.calle, "Colombres");
 	strcpy(list[3].censistaDireccion.numero, "1479");
+	list[3].estado = LIBERADO;
 	list[3].edad = 60;
 	list[3].fechaDeNacimiento.dia = 01;
 	list[3].fechaDeNacimiento.mes = 12;
@@ -299,9 +305,11 @@ void hardcodearCensistas(Censista * list){
 	strcpy(list[4].apellido, "Salucho");
 	strcpy(list[4].censistaDireccion.calle, "Santander");
 	strcpy(list[4].censistaDireccion.numero, "1340");
+	list[4].estado = LIBERADO;
 	list[4].edad = 61;
 	list[4].fechaDeNacimiento.dia = 27;
 	list[4].fechaDeNacimiento.mes = 07;
 	list[4].fechaDeNacimiento.anio = 1960;
 	list[4].isEmpty = 1;
 }
+

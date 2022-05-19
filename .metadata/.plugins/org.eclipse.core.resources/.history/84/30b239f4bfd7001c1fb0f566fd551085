@@ -1,0 +1,16 @@
+#ifndef INFORMES_H_
+#define INFORMES_H_
+
+
+int contarCensistasActivosPendientes();
+
+int mostrarCensistasPorZona();
+
+int buscarLocalidadConMasAusentes();
+
+int censistaConZonaMasCensada();
+
+int promedioCensosPorCensista();
+
+
+#endif

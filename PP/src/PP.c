@@ -4,6 +4,7 @@
 #include <string.h>
 #include "Censista.h"
 #include "Zona.h"
+#include "Informes.h"
 #include "UTN.h"
 
 //defines de censistas
@@ -65,14 +66,20 @@ int main(void) {
 	//Opciones de los menus
 	int opcionMenuPrincipal;
 	int opcionMenuModificaciones;
+	int opcionMenuInformes;
 
 	//Localidades
 	char localidades[5][32] = {"BOEDO", "CABALLITO", "FLORES", "PARQUE CHACABUCO", "ALMAGRO"};
 
 
+	//Variables utilizadas para informes
+	int contadorCensistasActivosConZonaPendiente;
+	int indexLocalidadConMasAusentes;
+	int indexCensistaConZonaMasCensada;
 
-	//hardcodearCensistas(censistas);
-	//hardcodearZonas(zonas);
+
+	hardcodearCensistas(censistas);
+	hardcodearZonas(zonas);
 
 
 	printf("----------SISTEMA DE GESTION DE ZONAS Y CENSISTAS----------\n");
@@ -86,9 +93,10 @@ int main(void) {
 		printf("6) CARGA DE DATOS\n");
 		printf("7) MOSTRAR CENSISTAS\n");
 		printf("8) MOSTRAR ZONAS\n");
-		printf("9) SALIR\n");
+		printf("9) MENU INFORMES\n");
+		printf("10) SALIR\n");
 
-		if(getInt(&opcionMenuPrincipal, "Por favor, ingrese una opcion\n", "La opcion Ingresada no es valida, intente nuevamente\n", 1, 9, 3)==0){
+		if(getInt(&opcionMenuPrincipal, "Por favor, ingrese una opcion\n", "La opcion Ingresada no es valida, intente nuevamente\n", 1, 10, 3)==0){
 			switch(opcionMenuPrincipal){
 
 
@@ -137,7 +145,7 @@ int main(void) {
 							printf("7) DIRECCION: CALLE\n");
 							printf("8) DIRECCION: NUMERO\n");
 							printf("9) MENU ANTERIOR\n");
-							if(getInt(&opcionMenuModificaciones, "Por favor, ingrese una opcion\n", "La opcion Ingresada no es valida, intente nuevamente\n", 1, 8, 3)==0 &&
+							if(getInt(&opcionMenuModificaciones, "Por favor, ingrese una opcion\n", "La opcion Ingresada no es valida, intente nuevamente\n", 1, 9, 3)==0 &&
 									getString ("Ingrese el nuevo dato:  ", "Error, intente nuevamente\n", nuevoDato, 32, 3) == 0 &&
 									modificarCensista(&censistas[indexCensistaSeleccionado], nuevoDato, opcionMenuModificaciones) == 0){
 									printf("Censista modificado\n");
@@ -186,6 +194,8 @@ int main(void) {
 
 			case 5://---------------------ASIGNAR CENSISTA A ZONA-----------------------------
 				//**Se valida que se hayan cargado zonas y censistas. Luego se solicita el ID de un censista y de una zona
+				//**Se valida que el censista exista y este liberado
+				//**Se valida que la zona exista y no este finalizada
 				//**En censistas:
 				//***Se asigna a zonaAsignada el ID de la zona
 				//***Se cambia su estado a ACTIVO
@@ -199,7 +209,7 @@ int main(void) {
 							censistas[indexCensistaSeleccionado].estado == LIBERADO &&
 							getInt(&idZonaSeleccionada, "Ingrese el ID de la zona", "", 500, MAX_ZONAS, 3)==0){
 						indexZonaSeleccionada = buscarIndexZonaPorId(zonas, MAX_ZONAS, idZonaSeleccionada);
-						if(indexZonaSeleccionada != -1){
+						if(indexZonaSeleccionada != -1 && zonas[indexZonaSeleccionada].estado != FINALIZADO){
 							censistas[indexCensistaSeleccionado].zonaAsignadaId = idZonaSeleccionada;
 							censistas[indexCensistaSeleccionado].estado = ACTIVO;
 							zonas[indexZonaSeleccionada].censistaId = censistas[indexCensistaSeleccionado].id;
@@ -216,6 +226,7 @@ int main(void) {
 
 			case 6://---------------------CARGA DE DATOS-----------------------------
 				//**Se valida que hayan zonas cargadas y censistas cargados y se solicita el ID de una zona.
+				//**Se valida que la zona exista y que tenga un censista asignado
 				//**Se solicita la cantidad de censados InSitu, virtuales y ausentes de esa zona
 				//***Si los datos cargados se validan correctamente:
 				//****La zona cambia su estado a FINALIZADO
@@ -223,7 +234,7 @@ int main(void) {
 				if(hayZonas(zonas, MAX_ZONAS) == 0 && hayCensistas(censistas, MAX_CENSISTAS) == 0 &&
 						getInt(&idZonaSeleccionada, "Ingrese el ID de la zona: \n", "\n", 0, 10000, 3) == 0){
 					indexZonaSeleccionada = buscarIndexZonaPorId(zonas, MAX_ZONAS, idZonaSeleccionada);
-					if(indexZonaSeleccionada != -1 &&
+					if(indexZonaSeleccionada != -1 && zonas[indexZonaSeleccionada].censistaId != -1 &&
 							getInt(&censadosInSituCargados, "Ingrese los censados in situ: \n", "\n", 0, 1000, 3) == 0 &&
 							getInt(&censadosVirtualesCargados, "Ingrese los censados virtuales: \n", "\n", 0, 1000, 3) == 0 &&
 							getInt(&censadosAusentesCargados, "Ingrese los ausentes: \n", "\n", 0, 1000, 3) == 0 &&
@@ -262,14 +273,67 @@ int main(void) {
 				break;
 
 
-			case 9://---------------------SALIR-----------------------------
+			case 9://---------------------MENU INFORMES-----------------------------
+				if(hayCensistas(censistas, MAX_CENSISTAS) == 0 && hayZonas(zonas, MAX_ZONAS)==0){
+					do{
+						printf("------------------MENU INFORMES-----------------\n");
+						printf("1) CENSISTAS ACTIVOS CON ZONAS PENDIENTES\n");
+						printf("2) CENSITAS POR ZONA\n");
+						printf("3) LOCALIDAD CON MAS AUSENTES\n");
+						printf("4) CENSISTA CON ZONA MAS CENSADA\n");
+						printf("5) PROMEDIO DE CENSOS POR CENSISTA Y ZONA\n");
+						printf("6) MENU ANTERIOR\n");
+						if(getInt(&opcionMenuInformes, "Por favor, ingrese una opcion\n", "La opcion Ingresada no es valida, intente nuevamente\n", 1, 6, 3)==0){
+
+							switch(opcionMenuInformes){
+							case 1:
+								if(contarCensistasActivosPendientes(censistas, MAX_CENSISTAS, zonas, MAX_ZONAS, &contadorCensistasActivosConZonaPendiente)==0){
+									printf("CENSISTAS ACTIVOS CON ZONAS PENDIENTES: %d\n", contadorCensistasActivosConZonaPendiente);
+								}
+								break;
+							case 2:
+								break;
+							case 3:
+								if(buscarLocalidadConMasAusentes(zonas, MAX_ZONAS, &indexLocalidadConMasAusentes, 5) == 0){
+									if(indexLocalidadConMasAusentes != -1){
+										printf("LOCALIDAD CON MAS AUSENTES: %s\n", localidades[indexLocalidadConMasAusentes]);
+									}
+									else{
+										printf("Aun no se han cargado datos suficientes.\n");
+									}
+								}
+								break;
+							case 4:
+								if(censistaConZonaMasCensada(censistas, MAX_CENSISTAS, zonas, MAX_ZONAS, &indexCensistaConZonaMasCensada) == 0){
+									if(indexCensistaConZonaMasCensada != -1){
+										printf("El censista con la zona mas censada es %s %s \n", censistas[indexCensistaConZonaMasCensada].nombre, censistas[indexCensistaConZonaMasCensada].apellido);
+									}
+									else{
+										printf("Aun no se han cargado datos suficientes.\n");
+									}
+
+								}
+								break;
+							case 5:
+								break;
+							case 6:
+								break;
+
+							}
+						}
+					}while(opcionMenuInformes!=6);
+
+			}
+			break;
+
+
+			case 10://---------------------SALIR-----------------------------
 				break;
+
 			}
 
-
-
 		}
-	}while(opcionMenuPrincipal != 9);
+	}while(opcionMenuPrincipal != 10);
 
 
 

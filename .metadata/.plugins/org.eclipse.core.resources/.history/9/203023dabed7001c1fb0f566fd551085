@@ -1,0 +1,30 @@
+
+int contarCensistasActivosPendientes(){
+	int retorno = -1;
+
+	return retorno;
+}
+
+int mostrarCensistasPorZona(){
+	int retorno = -1;
+
+	return retorno;
+}
+
+int buscarLocalidadConMasAusentes(){
+	int retorno = -1;
+
+	return retorno;
+}
+
+int censistaConZonaMasCensada(){
+	int retorno = -1;
+
+	return retorno;
+}
+
+int promedioCensosPorCensista(){
+	int retorno = -1;
+
+	return retorno;
+}
